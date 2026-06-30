@@ -136,10 +136,3 @@ MATLAB dengan System Identification Toolbox digunakan untuk seluruh proses ident
 2. Arahkan current folder ke salah satu folder model yang ingin dijalankan: `model-1-arx-nlarx`, `model-2-tf-hammerstein-wiener`, atau `model-3-state-space-nlarx-wavenet`.
 3. Jalankan file script `.m` sesuai urutan, dimulai dari script pembuatan atau pemrosesan dataset, kemudian script identifikasi model, lalu script analisis dan perbandingan.
 
-## Repository
-
-https://github.com/maz720p/tugas-besar-identifikasi-dan-estimasi
-
-## Referensi
-
-Tambahkan daftar referensi yang digunakan dalam tugas ini, misalnya dokumentasi System Identification Toolbox MATLAB dan sumber lain yang relevan.
