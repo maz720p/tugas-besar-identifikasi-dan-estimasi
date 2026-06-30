@@ -1,83 +1,145 @@
-Tugas System Identification - ARX, NLARX, Transfer Function, Hammerstein Wiener, State Space, NLARX Wavenet
+# Tugas Besar Identifikasi dan Estimasi
 
-Deskripsi Proyek
+Departemen Teknik Fisika, Institut Teknologi Sepuluh Nopember (ITS)
+Semester Genap 2025/2026
 
-Repository ini berisi tugas identifikasi sistem yang membandingkan beberapa pendekatan pemodelan, baik linear maupun nonlinear, menggunakan tiga dataset berbeda. Tujuan tugas ini adalah memahami konsep system identification, menerapkan berbagai metode pemodelan pada data nyata, serta membandingkan performa model linear dan nonlinear.
+## Anggota Kelompok
 
-Struktur Folder
+| Nama | NRP |
+|---|---|
+| Fauzan Randy Susanto | 5009231012 |
+| Rifqi Fadhillah Husien | 5009231049 |
+| Kania Indah Ramadhan | 5009231083 |
+| Mamluatul 'Azazah | 5009231106 |
+| Nurussyawal Latansa Fitri | 5009231127 |
 
-model-1-arx-nlarx
-Berisi hasil identifikasi sistem menggunakan dataset iddata1 dengan pendekatan ARX dan NLARX.
-Isi folder:
-ARX_NLARX/arx_nlarx_model.m, script MATLAB untuk membangun dan membandingkan model ARX dan NLARX
-ARX_NLARX/Model 1 - Raw Data.png, visualisasi data mentah
-ARX_NLARX/Model 1 - ARX Residual Analysis.png, hasil analisis residual model ARX
-ARX_NLARX/Model 1 - Comparison.png, perbandingan performa ARX vs NLARX
+## Deskripsi Proyek
 
-model-2-tf-hammerstein-wiener
-Berisi hasil identifikasi sistem menggunakan dataset iddata2 dengan pendekatan Transfer Function dan Hammerstein Wiener.
-Isi folder:
-iddata2/buat_dataset.m, script pembuatan dataset
-iddata2/identifikasi_tf.m, script identifikasi model Transfer Function
-iddata2/identifikasi_hw.m, script identifikasi model Hammerstein Wiener
-iddata2/analisis_model.m, script analisis hasil model
-iddata2/perbandingan_akurasi.m, script perbandingan akurasi kedua model
-iddata2/test_y.m, script pengujian output model
-iddata2/iddata2.mat, data identifikasi yang digunakan
-iddata2/bestTF.mat, model Transfer Function terbaik hasil identifikasi
-iddata2/HW.mat, model Hammerstein Wiener hasil identifikasi
+Repository ini berisi tugas besar identifikasi sistem yang membandingkan beberapa pendekatan pemodelan, baik linear maupun nonlinear, menggunakan tiga dataset berbeda. Tujuan tugas ini adalah memahami konsep system identification, menerapkan berbagai metode pemodelan pada data nyata, serta membandingkan performa model linear dan nonlinear.
 
-model-3-state-space-nlarx-wavenet
-Berisi hasil identifikasi sistem menggunakan dataset dryer2 dengan pendekatan State Space dan NLARX Wavenet.
-Isi folder:
-dryer2-state-space-nlarx/data/dryer2.mat, data mentah dryer2
-dryer2-state-space-nlarx/data/dryer2_preprocessed.mat, data dryer2 setelah preprocessing
-dryer2-state-space-nlarx/src/preprocessing.m, script preprocessing data
-dryer2-state-space-nlarx/src/dataset_dryer2.m, script penyiapan dataset identifikasi
-dryer2-state-space-nlarx/src/identifikasi_statespace.m, script identifikasi model State Space
-dryer2-state-space-nlarx/src/perbandingan_model.m, script perbandingan model State Space vs NLARX Wavenet
-dryer2-state-space-nlarx/src/analisis_model.m, script analisis hasil model
-dryer2-state-space-nlarx/src/standalone.m, script standalone untuk menjalankan keseluruhan alur identifikasi
-dryer2-state-space-nlarx/models/bestSS.mat, model State Space terbaik hasil identifikasi
-dryer2-state-space-nlarx/results/figures/raw_data.png, visualisasi data mentah dryer2
-dryer2-state-space-nlarx/results/figures/detrended.png dan detrended_data.png, hasil proses detrending data
-dryer2-state-space-nlarx/results/figures/training_validation.png, pembagian data training dan validasi
-dryer2-state-space-nlarx/results/figures/step_response.png, respon step model State Space
-dryer2-state-space-nlarx/results/figures/pzmap.png, peta pole zero model State Space
-dryer2-state-space-nlarx/results/figures/validation_ss.png, hasil validasi model State Space
-dryer2-state-space-nlarx/dryer2-state-space-nlarx.prj, file project MATLAB
-dryer2-state-space-nlarx/resources, folder metadata internal project MATLAB, dibuat otomatis oleh MATLAB Project Tool dan tidak perlu diubah
+Tiga studi kasus yang dibahas:
 
-slides
+1. ARX vs NLARX pada dataset iddata1
+2. Transfer Function vs Hammerstein-Wiener pada dataset iddata2
+3. State Space vs NLARX Wavenet pada dataset dryer2
+
+## Struktur Repository
+
+```
+.
+├── model-1-arx-nlarx/
+│   └── ARX_NLARX/
+│       ├── arx_nlarx_model.m
+│       ├── Model 1 - Raw Data.png
+│       ├── Model 1 - ARX Residual Analysis.png
+│       └── Model 1 - Comparison.png
+├── model-2-tf-hammerstein-wiener/
+│   └── iddata2/
+│       ├── buat_dataset.m
+│       ├── identifikasi_tf.m
+│       ├── identifikasi_hw.m
+│       ├── analisis_model.m
+│       ├── perbandingan_akurasi.m
+│       ├── test_y.m
+│       ├── iddata2.mat
+│       ├── bestTF.mat
+│       └── HW.mat
+├── model-3-state-space-nlarx-wavenet/
+│   └── dryer2-state-space-nlarx/
+│       ├── data/
+│       ├── src/
+│       ├── models/
+│       ├── results/figures/
+│       ├── resources/
+│       └── dryer2-state-space-nlarx.prj
+├── slides/
+├── docs/
+└── README.md
+```
+
+### model-1-arx-nlarx
+
+Identifikasi sistem dataset iddata1 dengan pendekatan ARX dan NLARX.
+
+| File | Keterangan |
+|---|---|
+| `arx_nlarx_model.m` | Script MATLAB untuk membangun dan membandingkan model ARX dan NLARX |
+| `Model 1 - Raw Data.png` | Visualisasi data mentah |
+| `Model 1 - ARX Residual Analysis.png` | Hasil analisis residual model ARX |
+| `Model 1 - Comparison.png` | Perbandingan performa ARX vs NLARX |
+
+### model-2-tf-hammerstein-wiener
+
+Identifikasi sistem dataset iddata2 dengan pendekatan Transfer Function dan Hammerstein-Wiener.
+
+| File | Keterangan |
+|---|---|
+| `buat_dataset.m` | Script pembuatan dataset |
+| `identifikasi_tf.m` | Script identifikasi model Transfer Function |
+| `identifikasi_hw.m` | Script identifikasi model Hammerstein-Wiener |
+| `analisis_model.m` | Script analisis hasil model |
+| `perbandingan_akurasi.m` | Script perbandingan akurasi kedua model |
+| `test_y.m` | Script pengujian output model |
+| `iddata2.mat` | Data identifikasi yang digunakan |
+| `bestTF.mat` | Model Transfer Function terbaik hasil identifikasi |
+| `HW.mat` | Model Hammerstein-Wiener hasil identifikasi |
+
+### model-3-state-space-nlarx-wavenet
+
+Identifikasi sistem dataset dryer2 dengan pendekatan State Space dan NLARX Wavenet.
+
+| File / Folder | Keterangan |
+|---|---|
+| `data/dryer2.mat` | Data mentah dryer2 |
+| `data/dryer2_preprocessed.mat` | Data dryer2 setelah preprocessing |
+| `src/preprocessing.m` | Script preprocessing data |
+| `src/dataset_dryer2.m` | Script penyiapan dataset identifikasi |
+| `src/identifikasi_statespace.m` | Script identifikasi model State Space |
+| `src/perbandingan_model.m` | Script perbandingan model State Space vs NLARX Wavenet |
+| `src/analisis_model.m` | Script analisis hasil model |
+| `src/standalone.m` | Script standalone untuk menjalankan keseluruhan alur identifikasi |
+| `models/bestSS.mat` | Model State Space terbaik hasil identifikasi |
+| `results/figures/raw_data.png` | Visualisasi data mentah dryer2 |
+| `results/figures/detrended.png`, `detrended_data.png` | Hasil proses detrending data |
+| `results/figures/training_validation.png` | Pembagian data training dan validasi |
+| `results/figures/step_response.png` | Respon step model State Space |
+| `results/figures/pzmap.png` | Peta pole zero model State Space |
+| `results/figures/validation_ss.png` | Hasil validasi model State Space |
+| `dryer2-state-space-nlarx.prj` | File project MATLAB |
+| `resources/` | Metadata internal project MATLAB, dibuat otomatis oleh MATLAB Project Tool |
+
+### slides
+
 Berisi file presentasi (PPT atau PDF) hasil tugas kelompok.
 
-docs
+### docs
+
 Berisi dokumen pendukung tambahan jika diperlukan, misalnya laporan tertulis.
 
-Pembagian Tugas
+## Pembagian Tugas Presentasi
 
-Orang 1, mengerjakan cover, latar belakang, tujuan, penjelasan singkat system identification, tools dan software yang digunakan, serta gambaran umum alur identifikasi sistem.
+| Anggota | Tanggung Jawab |
+|---|---|
+| Rifqi Fadhillah Husien | Cover, latar belakang, tujuan, penjelasan singkat system identification, tools dan software yang digunakan, gambaran umum alur identifikasi sistem |
+| Nurussyawal Latansa Fitri | Model 1 ARX dan NLARX (iddata1): deskripsi dataset, metodologi, konsep ARX, konsep NLARX, hasil dan analisis perbandingan ARX vs NLARX |
+| Kania Indah Ramadhan | Model 2 Transfer Function dan Hammerstein-Wiener (iddata2): deskripsi dataset, metodologi, konsep Transfer Function, konsep Hammerstein-Wiener, hasil dan analisis perbandingan TF vs Hammerstein-Wiener |
+| Fauzan Randy Susanto | Model 3 State Space dan NLARX Wavenet (dryer2): deskripsi dataset, preprocessing data, konsep State Space, konsep NLARX Wavenet, hasil dan analisis perbandingan State Space vs NLARX Wavenet |
+| Mamluatul 'Azazah | Perbandingan ketiga model, analisis kelebihan dan kekurangan masing-masing metode, ringkasan hasil identifikasi linear vs nonlinear, kesimpulan, push GitHub beserta link, referensi |
 
-Orang 2, mengerjakan Model 1 ARX dan NLARX menggunakan dataset iddata1, mencakup deskripsi dataset, metodologi, konsep ARX, konsep NLARX, serta hasil dan analisis perbandingan ARX vs NLARX.
-
-Orang 3, mengerjakan Model 2 Transfer Function dan Hammerstein Wiener menggunakan dataset iddata2, mencakup deskripsi dataset, metodologi, konsep Transfer Function, konsep Hammerstein Wiener, serta hasil dan analisis perbandingan TF vs Hammerstein Wiener.
-
-Orang 4, mengerjakan Model 3 State Space dan NLARX Wavenet menggunakan dataset dryer2, mencakup deskripsi dataset, preprocessing data, konsep State Space, konsep NLARX Wavenet, serta hasil dan analisis perbandingan State Space vs NLARX Wavenet.
-
-Orang 5, mengerjakan perbandingan ketiga model, analisis kelebihan dan kekurangan masing masing metode, ringkasan hasil identifikasi linear vs nonlinear, kesimpulan, push ke Github beserta link Github, dan referensi.
-
-Tools dan Software
+## Tools dan Software
 
 MATLAB dengan System Identification Toolbox digunakan untuk seluruh proses identifikasi sistem pada tugas ini.
 
-Cara Menjalankan
+## Cara Menjalankan
 
-Buka MATLAB lalu arahkan current folder ke salah satu folder model yang ingin dijalankan, misalnya model-1-arx-nlarx, model-2-tf-hammerstein-wiener, atau model-3-state-space-nlarx-wavenet. Jalankan file script .m sesuai urutan, dimulai dari script pembuatan atau pemrosesan dataset, kemudian script identifikasi model, lalu script analisis dan perbandingan.
+1. Buka MATLAB.
+2. Arahkan current folder ke salah satu folder model yang ingin dijalankan: `model-1-arx-nlarx`, `model-2-tf-hammerstein-wiener`, atau `model-3-state-space-nlarx-wavenet`.
+3. Jalankan file script `.m` sesuai urutan, dimulai dari script pembuatan atau pemrosesan dataset, kemudian script identifikasi model, lalu script analisis dan perbandingan.
 
-Link Github
+## Repository
 
-Tambahkan link repository Github di sini setelah proses push selesai.
+https://github.com/maz720p/tugas-besar-identifikasi-dan-estimasi
 
-Referensi
+## Referensi
 
 Tambahkan daftar referensi yang digunakan dalam tugas ini, misalnya dokumentasi System Identification Toolbox MATLAB dan sumber lain yang relevan.
